@@ -1,0 +1,56 @@
+﻿<Window x:Class="Faktura.TitleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Faktura"
+        mc:Ignorable="d"
+        Title="TitleWindow" Height="450" Width="686.176">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Orange" Offset="0.0"/>
+            <GradientStop Color="LightCoral" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style x:Key="styKlawiszy" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Foreground" Value="DarkGreen"/>
+            <Setter Property="BorderBrush" Value="Bisque"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="175">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Pink" Offset="0.0"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Style="{StaticResource styKlawiszy}" Content="Zaloguj" HorizontalAlignment="Left" Margin="29,49,0,0" VerticalAlignment="Top" Width="133" Height="48"/>
+        <Button Style="{StaticResource styKlawiszy}" Content="Button" HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Width="133" Height="51"/>
+        <TextBlock HorizontalAlignment="Left" Margin="221,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="330" Width="420"/>
+        <Rectangle x:Name="kwadratA" HorizontalAlignment="Left" Height="53" Margin="8,44,0,0" Stroke="Black" VerticalAlignment="Top" Width="16" Visibility="Hidden" IsVisibleChanged="KwadratA_IsVisibleChanged">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Red" Offset="0.0"/>
+                    <GradientStop Color="Orange" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="53" Margin="8,119,0,0" Stroke="Black" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.987,1.832" Visibility="Hidden">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Red" Offset="0.0"/>
+                    <GradientStop Color="Orange" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</Window>

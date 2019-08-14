@@ -1,0 +1,44 @@
+﻿<Window x:Class="Faktura.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Faktura"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="678.412">
+    <Window.Background>
+    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="Orange" Offset="0.0"/>
+        <GradientStop Color="LightCoral" Offset="1.0"/>
+    </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="styKlawiszy" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="AliceBlue"/>
+                <Setter Property="Foreground" Value="DarkGreen"/>
+                <Setter Property="BorderBrush" Value="Bisque"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="Red"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="32" Margin="349,205,0,0" VerticalAlignment="Top" Width="280"/>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Height="35" Margin="349,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="280"/>
+        <Label Content="Login" HorizontalAlignment="Left" Margin="349,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.977,1.455"/>
+        <Label Content="Hasło" HorizontalAlignment="Left" Margin="349,174,0,0" VerticalAlignment="Top" Width="52"/>
+        <Rectangle HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="331">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Pink" Offset="0.0"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Style="{StaticResource styKlawiszy}" Content="Zaloguj" HorizontalAlignment="Left" Margin="349,311,0,0" VerticalAlignment="Top" Width="124" Height="39" Click="buttonLogin_Click"/>
+        <Button Style="{StaticResource styKlawiszy}" Content="Button" HorizontalAlignment="Left" Margin="505,311,0,0" VerticalAlignment="Top" Width="124" Height="39"/>
+        <TextBlock HorizontalAlignment="Left" Height="49" Margin="24,58,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="275"/>
+    </Grid>
+</Window>
