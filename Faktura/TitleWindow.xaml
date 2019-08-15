@@ -33,10 +33,10 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button Style="{StaticResource styKlawiszy}" Content="Zaloguj" HorizontalAlignment="Left" Margin="29,49,0,0" VerticalAlignment="Top" Width="133" Height="48"/>
-        <Button Style="{StaticResource styKlawiszy}" Content="Button" HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Width="133" Height="51"/>
+        <Button Style="{StaticResource styKlawiszy}" Content="Faktura 2019" HorizontalAlignment="Left" Margin="29,49,0,0" VerticalAlignment="Top" Width="133" Height="48" Click="buttonFaktura_Click"/>
+        <Button Style="{StaticResource styKlawiszy}" Content="Faktura BHP 2019 (work in progress)" HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Width="133" Height="51" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="221,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="330" Width="420"/>
-        <Rectangle x:Name="kwadratA" HorizontalAlignment="Left" Height="53" Margin="8,44,0,0" Stroke="Black" VerticalAlignment="Top" Width="16" Visibility="Hidden" IsVisibleChanged="KwadratA_IsVisibleChanged">
+        <Rectangle x:Name="kwadratA" HorizontalAlignment="Left" Height="53" Margin="8,44,0,0" Stroke="Black" VerticalAlignment="Top" Width="16" Visibility="Hidden">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="Red" Offset="0.0"/>

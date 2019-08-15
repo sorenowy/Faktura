@@ -1,0 +1,25 @@
+﻿<Window x:Class="Faktura.Data.InvoiceAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Faktura.Data"
+        mc:Ignorable="d"
+        Title="InvoiceAddWindow" Height="450" Width="662.762">
+    <Grid>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="328,372,0,0" VerticalAlignment="Top" Width="124" Height="37" Click="buttonAddInvoice_Click"/>
+        <Button Content="Wyjdź" HorizontalAlignment="Left" Margin="477,372,0,0" VerticalAlignment="Top" Width="124" Height="37" Click="buttonExit_Click"/>
+        <TextBox x:Name="txtInvoiceDate" Text="" HorizontalAlignment="Left" Height="35" Margin="36,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="txtInvoiceInventory" HorizontalAlignment="Left" Height="35" Margin="36,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="txtInvoiceNumber" HorizontalAlignment="Left" Height="35" Margin="260,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,38,0,0" TextWrapping="Wrap" Text="Data faktury" VerticalAlignment="Top" Height="31" Width="71"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,120,0,0" TextWrapping="Wrap" Text="Rodzaj sprzętu" VerticalAlignment="Top" Height="31" Width="99"/>
+        <TextBlock HorizontalAlignment="Left" Margin="260,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="175"><Run Text="Kwota"/><Run Text=" faktury"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="260,38,0,0" TextWrapping="Wrap" Text="Numer Faktury" VerticalAlignment="Top" Height="31" Width="96"/>
+        <CheckBox Content="VAT w procencie" HorizontalAlignment="Left" Height="44" Margin="260,200,0,0" VerticalAlignment="Top" Width="123"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="260,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
+        <TextBlock HorizontalAlignment="Left" Margin="260,120,0,0" TextWrapping="Wrap" Text="Kwota VAT" VerticalAlignment="Top" Height="31" Width="96"/>
+        <TextBox x:Name="txtInvoiceMoneyVal" HorizontalAlignment="Left" Height="35" Margin="260,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+
+    </Grid>
+</Window>

@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using Faktura.Configuration;
+using Faktura.Data;
 
 namespace Faktura
 {
@@ -24,9 +27,10 @@ namespace Faktura
             InitializeComponent();
         }
 
-        private void KwadratA_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void buttonFaktura_Click(object sender, RoutedEventArgs e)
         {
-
+            InvoiceWindow invoiceWin = new InvoiceWindow();
+            invoiceWin.ShowDialog();
         }
     }
 }
