@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Faktura.Data"
         mc:Ignorable="d"
-        Title="InvoiceWindow" Height="450" Width="800" Language="pl-PL">
+        Title="Faktura 2019" Height="450" Width="800" Language="pl-PL">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="Pink" Offset="0.0"/>
@@ -13,14 +13,13 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <DataGrid x:Name="invoiceGrid" HorizontalAlignment="Left" Height="274" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" AutoGenerateColumns="True">
-        </DataGrid>
+        <DataGrid x:Name="invoiceGrid" HorizontalAlignment="Left" Height="274" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Background="AliceBlue" AutoGenerateColumns="True" AlternatingRowBackground="LightPink"/>
         <Button Content="Dodaj rekord" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonAdd_Click"/>
         <Button Content="Usuń rekord" HorizontalAlignment="Left" Margin="154,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="butttonRemove_Click"/>
         <Button Content="Zgłoś Problem" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="139" Height="35"/>
-        <Button Content="Drukuj fakturę" HorizontalAlignment="Left" Margin="643,331,0,0" VerticalAlignment="Top" Width="139" Height="35"/>
-        <Button Content="Zamknij" HorizontalAlignment="Left" Margin="643,371,0,0" VerticalAlignment="Top" Width="139" Height="35"/>
+        <Button Content="Drukuj fakturę" HorizontalAlignment="Left" Margin="643,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonPrintInvoice_Click"/>
+        <Button Content="Zamknij" HorizontalAlignment="Left" Margin="643,371,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonExitInvoice_Click"/>
         <TextBlock HorizontalAlignment="Left" TextAlignment="Right" FontWeight="DemiBold" FontSize="15" Margin="532,289,0,0" TextWrapping="Wrap" Text="SUMA:" VerticalAlignment="Top" Height="36" Width="106"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="662,289,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtsumInvoice" HorizontalAlignment="Left" Height="23" Margin="662,289,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

@@ -23,24 +23,26 @@ namespace Faktura.Data
     /// </summary>
     public partial class InvoiceWindow : Window
     {
+        DataTable dt = new DataTable();
         SqlConnection connection;
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dzik\source\repos\Faktura\Faktura\Data\Invoice.mdf;Integrated Security=True";
         string query = "DELETE FROM InvoiceData WHERE Id=@Id";
-        string queryRefreshRow = "DBCC CHECKIDENT(orders, RESEED)";
+        string queryRefreshRow = "DBCC CHECKIDENT(InvoiceData, RESEED,@Id)";
         public InvoiceWindow()
         {
             InitializeComponent();
             try
             {
                 using (connection = new SqlConnection(connectionString))
-                using (SqlDataAdapter sqladapter = new SqlDataAdapter("SELECT * FROM InvoiceData", connection))
+                using (SqlDataAdapter sqladapter = new SqlDataAdapter("SELECT Id as Numer, InvoiceDate as Data_Faktury, Type as Rodzaj_Sprzetu, InvoiceNumber as Numer_Faktury, MoneyValue as Kwota FROM InvoiceData", connection))
                 {
                     connection.Open();
-                    DataTable dt = new DataTable();
                     sqladapter.Fill(dt);
                     invoiceGrid.ItemsSource = dt.DefaultView;
+                    invoiceGrid.ColumnWidth = 155;
+                    double sum = Convert.ToDouble(dt.Compute("SUM(Kwota)", string.Empty));
+                    txtsumInvoice.Text = Convert.ToString(sum);
                 }
-
             }
             catch (Exception e)
             {
@@ -64,11 +66,30 @@ namespace Faktura.Data
                 Id = invoiceGrid.SelectedIndex;
             }
             using (connection = new SqlConnection(LocalParameters.localSqlConnect))
-            using (SqlCommand cmd = new SqlCommand("DBCC CHECKIDENT(InvoiceData, RESEED,@Id)", connection))
+            using (SqlCommand cmd = new SqlCommand(queryRefreshRow, connection))
             {
                 connection.Open();
                 cmd.Parameters.AddWithValue(@"Id", Id);
                 cmd.ExecuteNonQuery();
+            }
+        }
+        private void buttonExitInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void buttonPrintInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            using (connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter sqladapter = new SqlDataAdapter("SELECT Id as Numer, InvoiceDate as Data_Faktury, Type as Rodzaj_Sprzetu, InvoiceNumber as Numer_Faktury, MoneyValue as Kwota FROM InvoiceData", connection))
+            {
+                connection.Open();
+                invoiceGrid.ItemsSource = null;
+                dt.Clear();
+                sqladapter.Fill(dt);
+                invoiceGrid.ItemsSource = dt.DefaultView;
+                invoiceGrid.ColumnWidth = 155;
+                double sum = Convert.ToDouble(dt.Compute("SUM(Kwota)", string.Empty));
+                txtsumInvoice.Text = Convert.ToString(sum);
             }
         }
     }
