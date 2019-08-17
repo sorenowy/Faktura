@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
+using System.Diagnostics;
+using Faktura.Output;
 using Faktura.Configuration;
 using System.Data.SqlClient;
 
@@ -23,7 +25,6 @@ namespace Faktura.Data
     /// </summary>
     public partial class InvoiceWindow : Window
     {
-        DataTable dt = new DataTable();
         SqlConnection connection;
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dzik\source\repos\Faktura\Faktura\Data\Invoice.mdf;Integrated Security=True";
         string query = "DELETE FROM InvoiceData WHERE Id=@Id";
@@ -33,15 +34,32 @@ namespace Faktura.Data
             InitializeComponent();
             try
             {
+                /*var securePassword = new System.Security.SecureString();
+                foreach (var character in LocalParameters.password)
+                {
+                    securePassword.AppendChar(character);
+                }
+                securePassword.MakeReadOnly();
+                var credential = new SqlCredential(LocalParameters.username, securePassword);
+                using (connection = new SqlConnection("Data Source=DESKTOP-9BU76HS\\SQLEXPRESS;Initial Catalog=Faktura;Integrated Security=False",credential))
+                using (SqlDataAdapter sqladapter = new SqlDataAdapter("SELECT Id as Numer, InvoiceDate as Data_Faktury, Type as Rodzaj_Sprzetu, InvoiceNumber as Numer_Faktury, MoneyValue as Kwota FROM TableInvoice", connection))
+                {
+                    connection.Open();
+                    sqladapter.Fill(MainParameters.dataTable);
+                    invoiceGrid.ItemsSource = MainParameters.dataTable.DefaultView;
+                    invoiceGrid.ColumnWidth = 155;
+                    double sum = Convert.ToDouble(MainParameters.dataTable.Compute("SUM(Kwota)", string.Empty));
+                    txtsumInvoice.Text = Convert.ToString(sum) + " PLN";
+                } */
                 using (connection = new SqlConnection(connectionString))
                 using (SqlDataAdapter sqladapter = new SqlDataAdapter("SELECT Id as Numer, InvoiceDate as Data_Faktury, Type as Rodzaj_Sprzetu, InvoiceNumber as Numer_Faktury, MoneyValue as Kwota FROM InvoiceData", connection))
                 {
                     connection.Open();
-                    sqladapter.Fill(dt);
-                    invoiceGrid.ItemsSource = dt.DefaultView;
+                    sqladapter.Fill(MainParameters.dataTable);
+                    invoiceGrid.ItemsSource = MainParameters.dataTable.DefaultView;
                     invoiceGrid.ColumnWidth = 155;
-                    double sum = Convert.ToDouble(dt.Compute("SUM(Kwota)", string.Empty));
-                    txtsumInvoice.Text = Convert.ToString(sum);
+                    LocalParameters.sumInvoice = Convert.ToDouble(MainParameters.dataTable.Compute("SUM(Kwota)", string.Empty));
+                    txtsumInvoice.Text = Convert.ToString(LocalParameters.sumInvoice) + " PLN";
                 }
             }
             catch (Exception e)
@@ -84,13 +102,22 @@ namespace Faktura.Data
             {
                 connection.Open();
                 invoiceGrid.ItemsSource = null;
-                dt.Clear();
-                sqladapter.Fill(dt);
-                invoiceGrid.ItemsSource = dt.DefaultView;
+                MainParameters.dataTable.Clear();
+                sqladapter.Fill(MainParameters.dataTable);
+                invoiceGrid.ItemsSource = MainParameters.dataTable.DefaultView;
                 invoiceGrid.ColumnWidth = 155;
-                double sum = Convert.ToDouble(dt.Compute("SUM(Kwota)", string.Empty));
-                txtsumInvoice.Text = Convert.ToString(sum);
+                LocalParameters.sumInvoice = Convert.ToDouble(MainParameters.dataTable.Compute("SUM(Kwota)", string.Empty));
+                txtsumInvoice.Text = Convert.ToString(LocalParameters.sumInvoice + " PLN");
+                PDFPrinter print = new PDFPrinter();
+                print.CreatePDF();
+                print.PrintPDF();
             }
+        }
+
+        private void buttonHelp_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("mailto:" + "hubert.kuszynski@go.policja.gov.pl" + "?subject=" + "Problem z programem Faktura 2019" + "&body="
+                + "Proszę o załączenie loga programu z katalogu Logs/ProgramLogs.");
         }
     }
 }

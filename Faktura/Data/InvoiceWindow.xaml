@@ -16,7 +16,7 @@
         <DataGrid x:Name="invoiceGrid" HorizontalAlignment="Left" Height="274" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Background="AliceBlue" AutoGenerateColumns="True" AlternatingRowBackground="LightPink"/>
         <Button Content="Dodaj rekord" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonAdd_Click"/>
         <Button Content="Usuń rekord" HorizontalAlignment="Left" Margin="154,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="butttonRemove_Click"/>
-        <Button Content="Zgłoś Problem" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="139" Height="35"/>
+        <Button Content="Zgłoś Problem" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonHelp_Click"/>
         <Button Content="Drukuj fakturę" HorizontalAlignment="Left" Margin="643,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonPrintInvoice_Click"/>
         <Button Content="Zamknij" HorizontalAlignment="Left" Margin="643,371,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonExitInvoice_Click"/>
         <TextBlock HorizontalAlignment="Left" TextAlignment="Right" FontWeight="DemiBold" FontSize="15" Margin="532,289,0,0" TextWrapping="Wrap" Text="SUMA:" VerticalAlignment="Top" Height="36" Width="106"/>

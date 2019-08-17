@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Faktura.Output;
+using Faktura.Configuration;
 
 namespace Faktura
 {
@@ -27,8 +29,12 @@ namespace Faktura
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
+            PDFPrinter print = new PDFPrinter();
             TitleWindow titleWindow = new TitleWindow();
+            LocalParameters.username = textboxName.Text;
+            LocalParameters.password = passwordBox.Password;
             titleWindow.ShowDialog();
+
         }
     }
 }

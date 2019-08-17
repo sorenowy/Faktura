@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Configuration\LocalParameters.cs" />
+    <Compile Include="Configuration\MainParameters.cs" />
     <Compile Include="Data\InvoiceAddWindow.xaml.cs">
       <DependentUpon>InvoiceAddWindow.xaml</DependentUpon>
     </Compile>
