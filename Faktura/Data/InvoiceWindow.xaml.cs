@@ -1,23 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data;
 using System.Diagnostics;
 using Faktura.Connection;
 using Faktura.Output;
 using Faktura.Configuration;
-using System.Data.SqlClient;
+using Faktura.Logs;
 
 namespace Faktura.Data
 {
@@ -26,7 +13,6 @@ namespace Faktura.Data
     /// </summary>
     public partial class InvoiceWindow : Window
     {
-        SqlConnection connection;
         public InvoiceWindow()
         {
             InitializeComponent();
@@ -35,10 +21,12 @@ namespace Faktura.Data
                 invoiceGrid.ItemsSource = MainParameters.dataTable.DefaultView;
                 invoiceGrid.ColumnWidth = 155;
                 txtsumInvoice.Text = Convert.ToString(LocalParameters.sumInvoice) + " PLN";
+                LogWriter.LogWrite("Wyświetlono tabelę bazy danych faktur");
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show(e.Message);
+                LogWriter.LogWrite(e.ToString());
             }
         }
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
@@ -48,16 +36,26 @@ namespace Faktura.Data
         }
         private void butttonRemove_Click(object sender, RoutedEventArgs e)
         {
-            LocalParameters.idNumber = invoiceGrid.SelectedIndex + 1;
-            if (LocalParameters.netconnection == true)
+            try
             {
-                ServerSQLConnection _connection = new ServerSQLConnection();
-                _connection.DeleteRecord();
+                LocalParameters.idNumber = invoiceGrid.SelectedIndex + 1;
+                if (LocalParameters.netconnection == true)
+                {
+                    ServerSQLConnection _connection = new ServerSQLConnection();
+                    _connection.DeleteRecord();
+                    LogWriter.LogWrite($"Usunięto rekord o ID={LocalParameters.idNumber} z bazy SQLServer");
+                }
+                else if (LocalParameters.netconnection == false)
+                {
+                    LocalSQLConnection _connection = new LocalSQLConnection();
+                    _connection.LocalDeleteRecord();
+                    LogWriter.LogWrite($"Usunięto rekord o ID={LocalParameters.idNumber} z bazy Lokalnej");
+                }
             }
-            else if (LocalParameters.netconnection == false)
+            catch (Exception ex)
             {
-                LocalSQLConnection _connection = new LocalSQLConnection();
-                _connection.LocalDeleteRecord();
+                MessageBox.Show(ex.Message);
+                LogWriter.LogWrite(ex.ToString());
             }
         }
         private void buttonExitInvoice_Click(object sender, RoutedEventArgs e)
@@ -68,9 +66,19 @@ namespace Faktura.Data
         }
         private void buttonPrintInvoice_Click(object sender, RoutedEventArgs e)
         {
-            PDFPrinter print = new PDFPrinter();
-            print.CreatePDF();
-            print.PrintPDF();
+            try
+            {
+                PDFPrinter print = new PDFPrinter();
+                print.CreatePDF();
+                print.PrintPDF();
+                LogWriter.LogWrite("Wygenerowano wydruk wyjściowy faktury.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                LogWriter.LogWrite("Błąd wydruku!" + ex.ToString());
+            }
+
         }
 
         private void buttonHelp_Click(object sender, RoutedEventArgs e)

@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Threading.Tasks;
-using Faktura.Connection;
+﻿using System.Data;
+using System.Windows;
 
 namespace Faktura.Configuration
 {
     internal class MainParameters
     {
         internal static DataTable dataTable = new DataTable();
+        internal static void Welcome()
+        {
+            MessageBox.Show("Witaj w programie FAKTURA 2019, W celu poprawnej pracy programu, upewnij się że posiadasz zainstalowane oprogramowanie Adobe Reader minimalnie w wersji 11.0.","Uwaga",MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }

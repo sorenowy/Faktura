@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Faktura"
         mc:Ignorable="d"
-        Title="TitleWindow" Height="450" Width="686.176">
+        Title="Wybierz Program" Height="450" Width="686.176">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="Orange" Offset="0.0"/>
@@ -17,9 +17,13 @@
             <Setter Property="Background" Value="AliceBlue"/>
             <Setter Property="Foreground" Value="DarkGreen"/>
             <Setter Property="BorderBrush" Value="Bisque"/>
+            <Setter Property="FontFamily" Value="Cambria"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+                    <Setter Property="BorderThickness" Value="4"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -33,9 +37,9 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button Style="{StaticResource styKlawiszy}" Content="Faktura 2019" HorizontalAlignment="Left" Margin="29,49,0,0" VerticalAlignment="Top" Width="133" Height="48" Click="buttonFaktura_Click"/>
+        <Button Style="{StaticResource styKlawiszy}" Content="Faktura 2019" HorizontalAlignment="Left" Margin="29,49,0,0" VerticalAlignment="Top" Width="133" Height="48" Click="buttonFaktura_Click" ToolTip="Uruchamia program Faktura2019"/>
         <Button Style="{StaticResource styKlawiszy}" Content="Faktura BHP 2019 (work in progress)" HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Width="133" Height="51" IsEnabled="False"/>
-        <TextBlock HorizontalAlignment="Left" Margin="221,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="330" Width="420"/>
+        <TextBlock HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="18" Foreground="Black" Margin="221,49,0,0" TextWrapping="Wrap" Text="WYBIERZ PROGRAM FAKTURA 2019 ABY ZALOGOWAĆ SIĘ DO BAZY DANYCH. W PRZYPADKU BŁEDNYCH DANYCH LOGOWANIA ZOSTANIE URUCHOMIONA BAZA LOKALNA. PO ZAKOŃCZENIU PRACY NA BAZIE LOKALNEJ, SKONTATKUJ SIĘ Z ADMINISTRATOREM W CELU MIGRACJI DANYCH." VerticalAlignment="Top" Height="330" Width="420"/>
         <Rectangle x:Name="kwadratA" HorizontalAlignment="Left" Height="53" Margin="8,44,0,0" Stroke="Black" VerticalAlignment="Top" Width="16" Visibility="Hidden">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">

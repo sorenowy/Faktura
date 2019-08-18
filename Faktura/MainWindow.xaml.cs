@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Faktura.Output;
+﻿using System.Windows;
 using Faktura.Configuration;
+using Faktura.Logs;
 
 namespace Faktura
 {
@@ -25,6 +12,7 @@ namespace Faktura
         public MainWindow()
         {
             InitializeComponent();
+            MainParameters.Welcome();
         }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
@@ -33,6 +21,13 @@ namespace Faktura
             LocalParameters.username = textboxName.Text;
             LocalParameters.password = passwordBox.Password;
             titleWindow.ShowDialog();
+            LogWriter.LogWrite("Zapisano dane logowania do pamięci! " + LocalParameters.username + " " + LocalParameters.password);
+        }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            LogWriter.LogWrite("Zakończono pracę programu!");
         }
     }
 }

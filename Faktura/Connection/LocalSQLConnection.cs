@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Faktura.Configuration;
+using System.Windows;
 using System.Data.SqlClient;
-using Faktura.Data;
+using Faktura.Logs;
+
 
 namespace Faktura.Connection
 {
@@ -13,16 +11,25 @@ namespace Faktura.Connection
     {
         public LocalSQLConnection()
         {
-            new SqlConnection();
+            LocalParameters.username = "Ewa Świderska-Kuszyńska";
         }
         public void InitializeLocalConnection()
         {
-            using (var _connection = new SqlConnection(LocalParameters.localSqlPath))
-            using (SqlDataAdapter sqladapter = new SqlDataAdapter(LocalParameters.localSqlSelectQuery, _connection))
+            try
             {
-                _connection.Open();
-                sqladapter.Fill(MainParameters.dataTable);
-                LocalParameters.sumInvoice = Convert.ToDouble(MainParameters.dataTable.Compute("SUM(Kwota)", string.Empty));
+                using (var _connection = new SqlConnection(LocalParameters.localSqlPath))
+                using (SqlDataAdapter sqladapter = new SqlDataAdapter(LocalParameters.localSqlSelectQuery, _connection))
+                {
+                    _connection.Open();
+                    sqladapter.Fill(MainParameters.dataTable);
+                    LocalParameters.sumInvoice = Convert.ToDouble(MainParameters.dataTable.Compute("SUM(Kwota)", string.Empty));
+                }
+                LogWriter.LogWrite("Podłaczono do bazy lokalnej.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                LogWriter.LogWrite(ex.ToString());
             }
         }
         public void LocalRefreshView()

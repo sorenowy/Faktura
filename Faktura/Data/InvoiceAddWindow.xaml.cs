@@ -4,17 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data;
 using Faktura.Configuration;
-using System.Data.SqlClient;
 using Faktura.Connection;
+using Faktura.Logs;
 
 namespace Faktura.Data
 {
@@ -30,33 +22,51 @@ namespace Faktura.Data
 
         private void buttonAddInvoice_Click(object sender, RoutedEventArgs e)
         {
-            LocalParameters.invoiceDate = txtInvoiceDate.Text;
-            LocalParameters.invoiceProductType = txtInvoiceInventory.Text;
-            LocalParameters.invoiceNumber = txtInvoiceNumber.Text;
-            LocalParameters.invoiceMoney = txtInvoiceMoneyVal.Text;
-            if (LocalParameters.netconnection == true)
+            try
             {
-                ServerSQLConnection _connection = new ServerSQLConnection();
-                _connection.AddRecord();
+                LocalParameters.invoiceDate = txtInvoiceDate.Text;
+                LocalParameters.invoiceProductType = txtInvoiceInventory.Text;
+                LocalParameters.invoiceNumber = txtInvoiceNumber.Text;
+                LocalParameters.invoiceMoney = txtInvoiceMoneyVal.Text;
+                if (LocalParameters.netconnection == true)
+                {
+                    ServerSQLConnection _connection = new ServerSQLConnection();
+                    _connection.AddRecord();
+                    LogWriter.LogWrite("Dodano fakturę do bazy SQLServer!");
+                }
+                else if (LocalParameters.netconnection == false)
+                {
+                    LocalSQLConnection _connection = new LocalSQLConnection();
+                    _connection.LocalAddRecord();
+                    LogWriter.LogWrite("Dodano fakturę do bazy lokalnej!");
+                }
             }
-            else if (LocalParameters.netconnection == false)
+            catch (Exception ex)
             {
-                LocalSQLConnection _connection = new LocalSQLConnection();
-                _connection.LocalAddRecord();
+                LogWriter.LogWrite(ex.ToString());
             }
+            
         }
         private void buttonExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            if (LocalParameters.netconnection == true)
+            try
             {
-                ServerSQLConnection _connection = new ServerSQLConnection();
-                _connection.RefreshView();
+                if (LocalParameters.netconnection == true)
+                {
+                    ServerSQLConnection _connection = new ServerSQLConnection();
+                    _connection.RefreshView();
+                }
+                else if (LocalParameters.netconnection == false)
+                {
+                    LocalSQLConnection _connection = new LocalSQLConnection();
+                    _connection.LocalRefreshView();
+                }
             }
-            else if (LocalParameters.netconnection == false)
+            catch (Exception ex)
             {
-                LocalSQLConnection _connection = new LocalSQLConnection();
-                _connection.LocalRefreshView();
+                MessageBox.Show(ex.Message);
+                LogWriter.LogWrite(ex.ToString());
             }
         }
     }

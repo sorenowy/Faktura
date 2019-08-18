@@ -12,14 +12,30 @@
             <GradientStop Color="LightBlue" Offset="1.0"/>
         </LinearGradientBrush>
     </Window.Background>
+    <Window.Resources>
+        <Style x:Key="styKlawiszy" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Foreground" Value="DarkGreen"/>
+            <Setter Property="BorderBrush" Value="Bisque"/>
+            <Setter Property="FontFamily" Value="Cambria"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <DataGrid x:Name="invoiceGrid" HorizontalAlignment="Left" Height="274" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Background="AliceBlue" AutoGenerateColumns="True" AlternatingRowBackground="LightPink"/>
-        <Button Content="Dodaj rekord" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonAdd_Click"/>
-        <Button Content="Usuń rekord" HorizontalAlignment="Left" Margin="154,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="butttonRemove_Click"/>
-        <Button Content="Zgłoś Problem" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonHelp_Click"/>
-        <Button Content="Drukuj fakturę" HorizontalAlignment="Left" Margin="643,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonPrintInvoice_Click"/>
-        <Button Content="Zamknij" HorizontalAlignment="Left" Margin="643,371,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonExitInvoice_Click"/>
+        <DataGrid x:Name="invoiceGrid" HorizontalAlignment="Left" Height="274" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Background="AliceBlue" AutoGenerateColumns="True" AlternatingRowBackground="LightPink" FontFamily="TimesNewRoman"/>
+        <Button Content="Dodaj rekord" Style="{StaticResource styKlawiszy}" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonAdd_Click"/>
+        <Button Content="Usuń rekord" Style="{StaticResource styKlawiszy}" HorizontalAlignment="Left" Margin="154,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="butttonRemove_Click"/>
+        <Button Content="Zgłoś Problem" Style="{StaticResource styKlawiszy}" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonHelp_Click"/>
+        <Button Content="Drukuj fakturę" Style="{StaticResource styKlawiszy}" HorizontalAlignment="Left" Margin="643,331,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonPrintInvoice_Click"/>
+        <Button Content="Zamknij" HorizontalAlignment="Left" Style="{StaticResource styKlawiszy}" Margin="643,371,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="buttonExitInvoice_Click"/>
         <TextBlock HorizontalAlignment="Left" TextAlignment="Right" FontWeight="DemiBold" FontSize="15" Margin="532,289,0,0" TextWrapping="Wrap" Text="SUMA:" VerticalAlignment="Top" Height="36" Width="106"/>
-        <TextBox x:Name="txtsumInvoice" HorizontalAlignment="Left" Height="23" Margin="662,289,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtsumInvoice" HorizontalAlignment="Left" Height="23" Margin="662,289,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="TimesNewRoman"/>
     </Grid>
 </Window>

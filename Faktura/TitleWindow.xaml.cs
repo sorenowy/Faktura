@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data.SqlClient;
 using Faktura.Configuration;
 using Faktura.Data;
 using Faktura.Logs;
@@ -36,14 +24,16 @@ namespace Faktura
                 ServerSQLConnection _connection = new ServerSQLConnection();
                 _connection.InitializeConnection();
                 LocalParameters.netconnection = true;
+                LogWriter.LogWrite("Podłączono do bazy FakturaSQL na serwerze KWP");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Nie udało się połaczyć z bazą danych!","Błąd");
+                MessageBox.Show("Nie udało się połaczyć z bazą danych!","Błąd",MessageBoxButton.OK,MessageBoxImage.Warning);
                 LogWriter.LogWrite(ex.ToString());
                 LocalSQLConnection _connection = new LocalSQLConnection();
                 _connection.InitializeLocalConnection();
                 LocalParameters.netconnection = false;
+                LogWriter.LogWrite("Bład podłaczenia do bazy danych.." + ex.ToString());
             }
             InvoiceWindow invoiceWin = new InvoiceWindow();
             invoiceWin.ShowDialog();

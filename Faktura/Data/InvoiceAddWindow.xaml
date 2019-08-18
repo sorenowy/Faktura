@@ -5,21 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Faktura.Data"
         mc:Ignorable="d"
-        Title="InvoiceAddWindow" Height="450" Width="662.762">
+        Title="Dodaj nową fakturę" Height="450" Width="477.762">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Pink" Offset="0.0"/>
+            <GradientStop Color="LightBlue" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style x:Key="styKlawiszy" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Foreground" Value="CornflowerBlue"/>
+            <Setter Property="BorderBrush" Value="Bisque"/>
+            <Setter Property="FontFamily" Value="Cambria"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="FontStyle" TargetType="{x:Type Control}">
+            <Setter Property="FontFamily" Value="TimesNewRoman"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="328,372,0,0" VerticalAlignment="Top" Width="124" Height="37" Click="buttonAddInvoice_Click"/>
-        <Button Content="Wyjdź" HorizontalAlignment="Left" Margin="477,372,0,0" VerticalAlignment="Top" Width="124" Height="37" Click="buttonExit_Click"/>
-        <TextBox x:Name="txtInvoiceDate" Text="" HorizontalAlignment="Left" Height="35" Margin="36,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
-        <TextBox x:Name="txtInvoiceInventory" HorizontalAlignment="Left" Height="35" Margin="36,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
-        <TextBox x:Name="txtInvoiceNumber" HorizontalAlignment="Left" Height="35" Margin="260,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275"/>
+        <TextBox x:Name="txtInvoiceDate" Style="{StaticResource FontStyle}" Text="" HorizontalAlignment="Left" Height="35" Margin="36,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="txtInvoiceInventory" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Height="35" Margin="36,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="txtInvoiceNumber" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Height="35" Margin="36,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275"/>
         <TextBlock HorizontalAlignment="Left" Margin="36,38,0,0" TextWrapping="Wrap" Text="Data faktury" VerticalAlignment="Top" Height="31" Width="71"/>
         <TextBlock HorizontalAlignment="Left" Margin="36,120,0,0" TextWrapping="Wrap" Text="Rodzaj sprzętu" VerticalAlignment="Top" Height="31" Width="99"/>
-        <TextBlock HorizontalAlignment="Left" Margin="260,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="175"><Run Text="Kwota"/><Run Text=" faktury"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="260,38,0,0" TextWrapping="Wrap" Text="Numer Faktury" VerticalAlignment="Top" Height="31" Width="96"/>
-        <CheckBox Content="VAT w procencie" HorizontalAlignment="Left" Height="44" Margin="260,200,0,0" VerticalAlignment="Top" Width="123"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="260,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
-        <TextBlock HorizontalAlignment="Left" Margin="260,120,0,0" TextWrapping="Wrap" Text="Kwota VAT" VerticalAlignment="Top" Height="31" Width="96"/>
-        <TextBox x:Name="txtInvoiceMoneyVal" HorizontalAlignment="Left" Height="35" Margin="260,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
-
+        <TextBlock HorizontalAlignment="Left" Margin="241,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="175"><Run Text="Kwota"/><Run Text=" faktury"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="36,209,0,0" TextWrapping="Wrap" Text="Numer Faktury" VerticalAlignment="Top" Height="31" Width="96"/>
+        <TextBox x:Name="txtInvoiceMoneyVal" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Height="35" Margin="241,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBlock HorizontalAlignment="Left" Margin="241,120,0,0" TextWrapping="Wrap" Text="Kwota VAT" VerticalAlignment="Top" Height="31" Width="96"/>
+        <TextBox HorizontalAlignment="Left" Style="{StaticResource FontStyle}" Height="35" Margin="241,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
+        <CheckBox Content="VAT w procencie" HorizontalAlignment="Left" Height="44" Margin="319,121,0,0" VerticalAlignment="Top" Width="123"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Style="{StaticResource styKlawiszy}" Margin="171,372,0,0" VerticalAlignment="Top" Width="124" Height="37" Click="buttonAddInvoice_Click"/>
+        <Button Content="Wyjdź" HorizontalAlignment="Left" Style="{StaticResource styKlawiszy}" Margin="318,372,0,0" VerticalAlignment="Top" Width="124" Height="37" Click="buttonExit_Click"/>
     </Grid>
 </Window>

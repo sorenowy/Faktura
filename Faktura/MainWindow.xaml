@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Faktura"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="678.412">
+        Title="FAKTURA 2019" Height="450" Width="678.412">
     <Window.Background>
-    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-        <GradientStop Color="Orange" Offset="0.0"/>
-        <GradientStop Color="LightCoral" Offset="1.0"/>
-    </LinearGradientBrush>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Orange" Offset="0.0"/>
+            <GradientStop Color="LightCoral" Offset="1.0"/>
+        </LinearGradientBrush>
     </Window.Background>
     <Grid>
         <Grid.Resources>
@@ -18,17 +18,27 @@
                 <Setter Property="Background" Value="AliceBlue"/>
                 <Setter Property="Foreground" Value="DarkGreen"/>
                 <Setter Property="BorderBrush" Value="Bisque"/>
+                <Setter Property="FontFamily" Value="Cambria"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
                         <Setter Property="Foreground" Value="Red"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontWeight" Value="DemiBold"/>
+                        <Setter Property="BorderThickness" Value="4"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>
+            <Style x:Key="FontStyle" TargetType="{x:Type Control}">
+                <Setter Property="FontFamily" Value="Cambria"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="Foreground" Value="CornflowerBlue"/>
+            </Style>
         </Grid.Resources>
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="32" Margin="349,205,0,0" VerticalAlignment="Top" Width="280"/>
-        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Height="35" Margin="349,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="280"/>
-        <Label Content="Login" HorizontalAlignment="Left" Margin="349,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.977,1.455"/>
-        <Label Content="Hasło" HorizontalAlignment="Left" Margin="349,174,0,0" VerticalAlignment="Top" Width="52"/>
+        <TextBox x:Name="textboxName" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Height="35" Margin="349,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="280"/>
+        <Label Content="LOGIN" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Margin="349,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.977,1.455" Width="80"/>
+        <Label Content="HASŁO" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Margin="349,174,0,0" VerticalAlignment="Top" Width="93"/>
         <Rectangle HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="331">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -37,8 +47,18 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button Style="{StaticResource styKlawiszy}" Content="Zaloguj" HorizontalAlignment="Left" Margin="349,311,0,0" VerticalAlignment="Top" Width="124" Height="39" Click="buttonLogin_Click"/>
-        <Button Style="{StaticResource styKlawiszy}" Content="Button" HorizontalAlignment="Left" Margin="505,311,0,0" VerticalAlignment="Top" Width="124" Height="39"/>
-        <TextBlock HorizontalAlignment="Left" Height="49" Margin="24,58,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="275"/>
+        <Button Style="{StaticResource styKlawiszy}" Content="Zaloguj" HorizontalAlignment="Left" Margin="349,311,0,0" VerticalAlignment="Top" Width="124" Height="39" Click="buttonLogin_Click" ToolTip="Przekazuje dane logowania do bazy danych"/>
+        <Button Style="{StaticResource styKlawiszy}" Content="Zamknij" HorizontalAlignment="Left" Margin="505,311,0,0" VerticalAlignment="Top" Width="124" Height="39" Click="buttonExit_Click" ToolTip="Zamyka program!"/>
+        <TextBlock HorizontalAlignment="Left" Height="114" Margin="10,205,0,0" Foreground="CornflowerBlue" FontFamily="Cambria" FontWeight="DemiBold" FontSize="18" TextWrapping="Wrap" Text="WITAJ W PROGRAMIE FAKTURA 2019, WPISZ DANE DO ZALOGOWANIA DO PROGRAMU I NACISNIJ PRZYCISK ZALOGUJ W CELU ROZPOCZĘCIA PRACY" VerticalAlignment="Top" Width="275"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,324,0,0" Foreground="CornflowerBlue" FontFamily="Cambria" FontWeight="DemiBold" FontSize="18" TextWrapping="Wrap" Text="MADE BY HUBERT KUSZYŃSKI. KWP GORZÓW WLKP.                     TEL 11659/608 355 925" VerticalAlignment="Top" Height="82" Width="283" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.176"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
     </Grid>
 </Window>
