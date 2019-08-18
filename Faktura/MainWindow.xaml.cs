@@ -29,12 +29,10 @@ namespace Faktura
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            PDFPrinter print = new PDFPrinter();
             TitleWindow titleWindow = new TitleWindow();
             LocalParameters.username = textboxName.Text;
             LocalParameters.password = passwordBox.Password;
             titleWindow.ShowDialog();
-
         }
     }
 }

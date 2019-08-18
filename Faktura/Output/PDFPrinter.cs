@@ -34,10 +34,9 @@ namespace Faktura.Output
                 Document _doc = new Document(PageSize.A4, 25f, 25f, 30f, 30f);
                 PdfWriter _writer = PdfWriter.GetInstance(_doc, fs);
 
-                Paragraph _bossSign = new Paragraph("..............");
                 Paragraph _bossSignMark = new Paragraph("Podpis kierownika komórki organizacyjnej");
-                Paragraph _coordinatorSign = new Paragraph("..............");
                 Paragraph _coordinatorSignMark = new Paragraph("Podpis koordynatora");
+                Paragraph _cellSpacer = new Paragraph("\n\n\n\n");
                 Paragraph _spacer = new Paragraph("");
                 _spacer.SpacingBefore = 100f;
                 _spacer.SpacingAfter = 10f;
@@ -65,6 +64,15 @@ namespace Faktura.Output
                 _dataTable.AddCell("WYDZIAL:");
                 _dataTable.AddCell("WYDZIAL FINANSÓW KWP");
                 _dataTable.SpacingAfter = 5f;
+
+                PdfPTable _signTable = new PdfPTable(2);
+                _signTable.WidthPercentage = 100;
+                _bossSignMark.Alignment = PdfPCell.ALIGN_CENTER;
+                _coordinatorSignMark.Alignment = PdfPCell.ALIGN_CENTER;
+                _signTable.AddCell(_bossSignMark);
+                _signTable.AddCell(_coordinatorSignMark);
+                _signTable.AddCell(_cellSpacer);
+                _signTable.AddCell(_cellSpacer);
                 PdfPTable _invoiceTable = new PdfPTable(MainParameters.dataTable.Columns.Count);
                 _invoiceTable.WidthPercentage = 100;
 
@@ -105,14 +113,15 @@ namespace Faktura.Output
                 _doc.Add(Chunk.NEWLINE);
                 _doc.Add(Chunk.NEWLINE);
                 _doc.Add(Chunk.NEWLINE);
-                _coordinatorSign.Alignment = PdfPCell.ALIGN_RIGHT;
+                _doc.Add(_signTable);
+                /*_coordinatorSign.Alignment = PdfPCell.ALIGN_RIGHT;
                 _coordinatorSignMark.Alignment = PdfPCell.ALIGN_RIGHT;
                 _bossSignMark.Alignment = PdfPCell.ALIGN_LEFT;
                 _bossSign.Alignment = PdfPCell.ALIGN_LEFT;
                 _doc.Add(_coordinatorSign);
                 _doc.Add(_coordinatorSignMark);
                 _doc.Add(_bossSign);
-                _doc.Add(_bossSignMark);
+                _doc.Add(_bossSignMark); */
                 _doc.Close();
                 _writer.Close();
                 fs.Close();

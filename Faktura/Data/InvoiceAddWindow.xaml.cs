@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using Faktura.Configuration;
 using System.Data.SqlClient;
+using Faktura.Connection;
 
 namespace Faktura.Data
 {
@@ -22,8 +23,6 @@ namespace Faktura.Data
     /// </summary>
     public partial class InvoiceAddWindow : Window
     {
-        SqlConnection connection;
-        string query = "INSERT INTO InvoiceData VALUES (@InvoiceDate, @Type, @InvoiceNumber, @MoneyValue)";
         public InvoiceAddWindow()
         {
             InitializeComponent();
@@ -31,22 +30,34 @@ namespace Faktura.Data
 
         private void buttonAddInvoice_Click(object sender, RoutedEventArgs e)
         {
-            using (connection = new SqlConnection(LocalParameters.localSqlConnect))
-            using (SqlCommand cmd = new SqlCommand(query, connection))
+            LocalParameters.invoiceDate = txtInvoiceDate.Text;
+            LocalParameters.invoiceProductType = txtInvoiceInventory.Text;
+            LocalParameters.invoiceNumber = txtInvoiceNumber.Text;
+            LocalParameters.invoiceMoney = txtInvoiceMoneyVal.Text;
+            if (LocalParameters.netconnection == true)
             {
-                connection.Open();
-                cmd.Parameters.AddWithValue("@InvoiceDate", txtInvoiceDate.Text);
-                cmd.Parameters.AddWithValue("@Type", txtInvoiceInventory.Text);
-                cmd.Parameters.AddWithValue("@InvoiceNumber", txtInvoiceNumber.Text);
-                cmd.Parameters.AddWithValue("@MoneyValue", txtInvoiceMoneyVal.Text);
-                cmd.ExecuteNonQuery();
+                ServerSQLConnection _connection = new ServerSQLConnection();
+                _connection.AddRecord();
             }
-
+            else if (LocalParameters.netconnection == false)
+            {
+                LocalSQLConnection _connection = new LocalSQLConnection();
+                _connection.LocalAddRecord();
+            }
         }
-
         private void buttonExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            if (LocalParameters.netconnection == true)
+            {
+                ServerSQLConnection _connection = new ServerSQLConnection();
+                _connection.RefreshView();
+            }
+            else if (LocalParameters.netconnection == false)
+            {
+                LocalSQLConnection _connection = new LocalSQLConnection();
+                _connection.LocalRefreshView();
+            }
         }
     }
 }

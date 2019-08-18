@@ -77,6 +77,8 @@
     </ApplicationDefinition>
     <Compile Include="Configuration\LocalParameters.cs" />
     <Compile Include="Configuration\MainParameters.cs" />
+    <Compile Include="Connection\LocalSQLConnection.cs" />
+    <Compile Include="Connection\ServerSQLConnection.cs" />
     <Compile Include="Data\InvoiceAddWindow.xaml.cs">
       <DependentUpon>InvoiceAddWindow.xaml</DependentUpon>
     </Compile>
@@ -142,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Logs\ProgramLogs\" />
-    <Folder Include="SQLConnection\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Invoice.mdf">
