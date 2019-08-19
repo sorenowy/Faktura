@@ -19,10 +19,10 @@ namespace Faktura.Connection
             }
             securePassword.MakeReadOnly();
             credential = new SqlCredential(LocalParameters.username, securePassword);
-            using (var _connection = new SqlConnection(LocalParameters.serverSqlPath, credential))
-            using (SqlDataAdapter sqladapter = new SqlDataAdapter("ShowMeAll", _connection))
+            using (var connection = new SqlConnection(LocalParameters.serverSqlPath, credential))
+            using (SqlDataAdapter sqladapter = new SqlDataAdapter(LocalParameters.serverStoredProcedureSelect, connection))
             {
-                _connection.Open();
+                connection.Open();
                 sqladapter.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
                 sqladapter.Fill(MainParameters.dataTable);
                 LocalParameters.sumInvoice = Convert.ToDouble(MainParameters.dataTable.Compute("SUM(Kwota)", string.Empty));
@@ -42,14 +42,15 @@ namespace Faktura.Connection
             }
             securePassword.MakeReadOnly();
             credential = new SqlCredential(LocalParameters.username, securePassword);
-            using (var _connection = new SqlConnection(LocalParameters.serverSqlPath, credential))
-            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlInsertQuery, _connection))
+            using (var connection = new SqlConnection(LocalParameters.serverSqlPath, credential))
+            using (SqlCommand cmd = new SqlCommand(LocalParameters.serverStoredProcedureInsert, connection))
             {
-                _connection.Open();
+                connection.Open();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@InvoiceDate",LocalParameters.invoiceDate);
-                cmd.Parameters.AddWithValue("@Type", LocalParameters.invoiceProductType);
+                cmd.Parameters.AddWithValue("@InvoiceType", LocalParameters.invoiceProductType);
                 cmd.Parameters.AddWithValue("@InvoiceNumber", LocalParameters.invoiceNumber);
-                cmd.Parameters.AddWithValue("@MoneyValue", LocalParameters.invoiceMoney);
+                cmd.Parameters.AddWithValue("@InvoiceMoney", LocalParameters.invoiceMoney);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -62,22 +63,25 @@ namespace Faktura.Connection
             }
             securePassword.MakeReadOnly();
             credential = new SqlCredential(LocalParameters.username, securePassword);
-            using (var _connection = new SqlConnection(LocalParameters.serverSqlPath, credential))
-            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlDeleteQuery, _connection))
+            using (var connection = new SqlConnection(LocalParameters.serverSqlPath, credential))
+            using (SqlCommand cmd = new SqlCommand(LocalParameters.serverStoredProcedureDelete, connection))
             {
-                _connection.Open();
+                connection.Open();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue(@"Id", LocalParameters.idNumber);
                 cmd.ExecuteNonQuery();
                 LocalParameters.idNumber=LocalParameters.idNumber-1;
 
             }
-            using (var _connection = new SqlConnection(LocalParameters.serverSqlPath, credential))
-            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlIDCheckQuery, _connection))
+            using (var connection = new SqlConnection(LocalParameters.serverSqlPath, credential))
+            using (SqlCommand cmd = new SqlCommand(LocalParameters.serverStoredProcedureIDCheck, connection))
             {
-                _connection.Open();
-                cmd.Parameters.AddWithValue(@"Id", LocalParameters.idNumber);
+                connection.Open();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(@"Id", LocalParameters.idNumber-1);
                 cmd.ExecuteNonQuery();
             }
+            this.RefreshView();
         }
     } 
 }

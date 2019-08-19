@@ -41,14 +41,14 @@ namespace Faktura.Data
                 LocalParameters.idNumber = invoiceGrid.SelectedIndex + 1;
                 if (LocalParameters.netconnection == true)
                 {
-                    ServerSQLConnection _connection = new ServerSQLConnection();
-                    _connection.DeleteRecord();
+                    ServerSQLConnection connection = new ServerSQLConnection();
+                    connection.DeleteRecord();
                     LogWriter.LogWrite($"Usunięto rekord o ID={LocalParameters.idNumber} z bazy SQLServer");
                 }
                 else if (LocalParameters.netconnection == false)
                 {
-                    LocalSQLConnection _connection = new LocalSQLConnection();
-                    _connection.LocalDeleteRecord();
+                    LocalSQLConnection connection = new LocalSQLConnection();
+                    connection.LocalDeleteRecord();
                     LogWriter.LogWrite($"Usunięto rekord o ID={LocalParameters.idNumber} z bazy Lokalnej");
                 }
             }

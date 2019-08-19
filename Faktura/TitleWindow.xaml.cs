@@ -21,8 +21,8 @@ namespace Faktura
         {
             try
             {
-                ServerSQLConnection _connection = new ServerSQLConnection();
-                _connection.InitializeConnection();
+                ServerSQLConnection connection = new ServerSQLConnection();
+                connection.InitializeConnection();
                 LocalParameters.netconnection = true;
                 LogWriter.LogWrite("Podłączono do bazy FakturaSQL na serwerze KWP");
             }
@@ -30,8 +30,8 @@ namespace Faktura
             {
                 MessageBox.Show("Nie udało się połaczyć z bazą danych!","Błąd",MessageBoxButton.OK,MessageBoxImage.Warning);
                 LogWriter.LogWrite(ex.ToString());
-                LocalSQLConnection _connection = new LocalSQLConnection();
-                _connection.InitializeLocalConnection();
+                LocalSQLConnection connection = new LocalSQLConnection();
+                connection.InitializeLocalConnection();
                 LocalParameters.netconnection = false;
                 LogWriter.LogWrite("Bład podłaczenia do bazy danych.." + ex.ToString());
             }

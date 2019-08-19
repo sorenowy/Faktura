@@ -13,10 +13,10 @@ namespace Faktura.Configuration
         internal static string localSqlIDCheckQuery = "DBCC CHECKIDENT(InvoiceData, RESEED, @Id)";
         internal static string username = string.Empty;
         internal static string password = string.Empty;
-        internal static string serverStoredProcedureSelect = "ShowMeAll";
-        internal static string serverStoredProcedureInsert = "InsertNewOne";
-        internal static string serverStoredProcedureDelete = "DeleteThatOne";
-        internal static string serverStoredProcedureIDCheck = "CheckAndReseed";
+        internal static string serverStoredProcedureSelect = "SelectAllData";
+        internal static string serverStoredProcedureInsert = "AddNewRecord";
+        internal static string serverStoredProcedureDelete = "DeleteAndRefresh";
+        internal static string serverStoredProcedureIDCheck = "CheckId";
         internal static string invoiceDate = string.Empty;
         internal static string invoiceProductType = string.Empty;
         internal static string invoiceNumber = string.Empty;

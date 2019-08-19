@@ -30,14 +30,14 @@ namespace Faktura.Data
                 LocalParameters.invoiceMoney = txtInvoiceMoneyVal.Text;
                 if (LocalParameters.netconnection == true)
                 {
-                    ServerSQLConnection _connection = new ServerSQLConnection();
-                    _connection.AddRecord();
+                    ServerSQLConnection connection = new ServerSQLConnection();
+                    connection.AddRecord();
                     LogWriter.LogWrite("Dodano fakturę do bazy SQLServer!");
                 }
                 else if (LocalParameters.netconnection == false)
                 {
-                    LocalSQLConnection _connection = new LocalSQLConnection();
-                    _connection.LocalAddRecord();
+                    LocalSQLConnection connection = new LocalSQLConnection();
+                    connection.LocalAddRecord();
                     LogWriter.LogWrite("Dodano fakturę do bazy lokalnej!");
                 }
             }
@@ -54,13 +54,13 @@ namespace Faktura.Data
             {
                 if (LocalParameters.netconnection == true)
                 {
-                    ServerSQLConnection _connection = new ServerSQLConnection();
-                    _connection.RefreshView();
+                    ServerSQLConnection connection = new ServerSQLConnection();
+                    connection.RefreshView();
                 }
                 else if (LocalParameters.netconnection == false)
                 {
-                    LocalSQLConnection _connection = new LocalSQLConnection();
-                    _connection.LocalRefreshView();
+                    LocalSQLConnection connection = new LocalSQLConnection();
+                    connection.LocalRefreshView();
                 }
             }
             catch (Exception ex)

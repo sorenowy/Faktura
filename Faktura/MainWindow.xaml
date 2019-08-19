@@ -35,8 +35,8 @@
                 <Setter Property="Foreground" Value="CornflowerBlue"/>
             </Style>
         </Grid.Resources>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="32" Margin="349,205,0,0" VerticalAlignment="Top" Width="280"/>
         <TextBox x:Name="textboxName" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Height="35" Margin="349,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="280"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="32" Margin="349,205,0,0" VerticalAlignment="Top" Width="280"/>
         <Label Content="LOGIN" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Margin="349,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.977,1.455" Width="80"/>
         <Label Content="HASŁO" Style="{StaticResource FontStyle}" HorizontalAlignment="Left" Margin="349,174,0,0" VerticalAlignment="Top" Width="93"/>
         <Rectangle HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="331">
@@ -60,5 +60,6 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
+        <Image x:Name="menuImageBox" HorizontalAlignment="Left" Height="175" Margin="10,25,0,0" VerticalAlignment="Top" Width="307"/>
     </Grid>
 </Window>

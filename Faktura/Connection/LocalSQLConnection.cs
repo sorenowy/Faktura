@@ -11,16 +11,19 @@ namespace Faktura.Connection
     {
         public LocalSQLConnection()
         {
-            LocalParameters.username = "Ewa Świderska-Kuszyńska";
+            if (LocalParameters.username != string.Empty)
+            {
+                LocalParameters.username = "Ewa Świderska-Kuszyńska"; // Adding username if nothing was passed towards usernamebox
+            }
         }
         public void InitializeLocalConnection()
         {
             try
             {
-                using (var _connection = new SqlConnection(LocalParameters.localSqlPath))
-                using (SqlDataAdapter sqladapter = new SqlDataAdapter(LocalParameters.localSqlSelectQuery, _connection))
+                using (var connection = new SqlConnection(LocalParameters.localSqlPath))
+                using (SqlDataAdapter sqladapter = new SqlDataAdapter(LocalParameters.localSqlSelectQuery, connection))
                 {
-                    _connection.Open();
+                    connection.Open();
                     sqladapter.Fill(MainParameters.dataTable);
                     LocalParameters.sumInvoice = Convert.ToDouble(MainParameters.dataTable.Compute("SUM(Kwota)", string.Empty));
                 }
@@ -39,10 +42,10 @@ namespace Faktura.Connection
         }
         public void LocalAddRecord()
         {
-            using (var _connection = new SqlConnection(LocalParameters.localSqlPath))
-            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlInsertQuery, _connection))
+            using (var connection = new SqlConnection(LocalParameters.localSqlPath))
+            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlInsertQuery, connection))
             {
-                _connection.Open();
+                connection.Open();
                 cmd.Parameters.AddWithValue("@InvoiceDate", LocalParameters.invoiceDate);
                 cmd.Parameters.AddWithValue("@Type", LocalParameters.invoiceProductType);
                 cmd.Parameters.AddWithValue("@InvoiceNumber", LocalParameters.invoiceNumber);
@@ -52,19 +55,19 @@ namespace Faktura.Connection
         }
         public void LocalDeleteRecord()
         {
-            using (var _connection = new SqlConnection(LocalParameters.localSqlPath))
-            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlDeleteQuery, _connection))
+            using (var connection = new SqlConnection(LocalParameters.localSqlPath))
+            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlDeleteQuery, connection))
             {
-                _connection.Open();
+                connection.Open();
                 cmd.Parameters.AddWithValue(@"Id", LocalParameters.idNumber);
                 cmd.ExecuteNonQuery();
                 LocalParameters.idNumber = LocalParameters.idNumber - 1;
 
             }
-            using (var _connection = new SqlConnection(LocalParameters.localSqlPath))
-            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlIDCheckQuery, _connection))
+            using (var connection = new SqlConnection(LocalParameters.localSqlPath))
+            using (SqlCommand cmd = new SqlCommand(LocalParameters.localSqlIDCheckQuery, connection))
             {
-                _connection.Open();
+                connection.Open();
                 cmd.Parameters.AddWithValue(@"Id", LocalParameters.idNumber);
                 cmd.ExecuteNonQuery();
             }

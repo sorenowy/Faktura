@@ -1,0 +1,476 @@
+﻿
+19.08.2019 17:14:13:System.Data.DataException: Niewłaściwe użycie funkcji agregującej Sum() i typu: String.
+   w System.Data.Common.StringStorage.Aggregate(Int32[] recordNos, AggregateType kind)
+   w System.Data.DataColumn.GetAggregateValue(Int32[] records, AggregateType kind)
+   w System.Data.AggregateNode.Eval(Int32[] records)
+   w System.Data.DataExpression.Evaluate(DataRow[] rows, DataRowVersion version)
+   w System.Data.DataTable.Compute(String expression, String filter)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 28
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:14:21:System.ArgumentException: Nieprawidłowy format ciągu wejściowego.Nie można przechowywać <3123/FZ> w kolumnie Numer_Faktury. Oczekiwanym typ to Int32. ---> System.FormatException: Nieprawidłowy format ciągu wejściowego.
+   w System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   w System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   w System.String.System.IConvertible.ToInt32(IFormatProvider provider)
+   w System.Data.Common.Int32Storage.Set(Int32 record, Object value)
+   w System.Data.DataColumn.set_Item(Int32 record, Object value)
+   --- Koniec śladu stosu wyjątków wewnętrznych ---
+   w System.Data.DataColumn.set_Item(Int32 record, Object value)
+   w System.Data.DataTable.NewRecordFromArray(Object[] value)
+   w System.Data.DataTable.LoadDataRow(Object[] values, Boolean fAcceptChanges)
+   w System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   w System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   w System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   w System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   w System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   w System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   w System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   w Faktura.Connection.LocalSQLConnection.InitializeLocalConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\LocalSQLConnection.cs:wiersz 24
+
+19.08.2019 17:14:21:Bład podłaczenia do bazy danych..System.Data.DataException: Niewłaściwe użycie funkcji agregującej Sum() i typu: String.
+   w System.Data.Common.StringStorage.Aggregate(Int32[] recordNos, AggregateType kind)
+   w System.Data.DataColumn.GetAggregateValue(Int32[] records, AggregateType kind)
+   w System.Data.AggregateNode.Eval(Int32[] records)
+   w System.Data.DataExpression.Evaluate(DataRow[] rows, DataRowVersion version)
+   w System.Data.DataTable.Compute(String expression, String filter)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 28
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:14:21:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:14:45:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska hubert
+
+19.08.2019 17:15:41:System.ArgumentException: Nieprawidłowy format ciągu wejściowego.Nie można przechowywać <31240/FZ> w kolumnie Numer_Faktury. Oczekiwanym typ to Int32. ---> System.FormatException: Nieprawidłowy format ciągu wejściowego.
+   w System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   w System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   w System.String.System.IConvertible.ToInt32(IFormatProvider provider)
+   w System.Data.Common.Int32Storage.Set(Int32 record, Object value)
+   w System.Data.DataColumn.set_Item(Int32 record, Object value)
+   --- Koniec śladu stosu wyjątków wewnętrznych ---
+   w System.Data.DataColumn.set_Item(Int32 record, Object value)
+   w System.Data.DataTable.NewRecordFromArray(Object[] value)
+   w System.Data.DataTable.LoadDataRow(Object[] values, Boolean fAcceptChanges)
+   w System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   w System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   w System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   w System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   w System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   w System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   w System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 27
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:15:43:System.ArgumentException: Nieprawidłowy format ciągu wejściowego.Nie można przechowywać <3123/FZ> w kolumnie Numer_Faktury. Oczekiwanym typ to Int32. ---> System.FormatException: Nieprawidłowy format ciągu wejściowego.
+   w System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   w System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   w System.String.System.IConvertible.ToInt32(IFormatProvider provider)
+   w System.Data.Common.Int32Storage.Set(Int32 record, Object value)
+   w System.Data.DataColumn.set_Item(Int32 record, Object value)
+   --- Koniec śladu stosu wyjątków wewnętrznych ---
+   w System.Data.DataColumn.set_Item(Int32 record, Object value)
+   w System.Data.DataTable.NewRecordFromArray(Object[] value)
+   w System.Data.DataTable.LoadDataRow(Object[] values, Boolean fAcceptChanges)
+   w System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   w System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   w System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   w System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   w System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   w System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   w System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   w Faktura.Connection.LocalSQLConnection.InitializeLocalConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\LocalSQLConnection.cs:wiersz 24
+
+19.08.2019 17:15:43:Bład podłaczenia do bazy danych..System.ArgumentException: Nieprawidłowy format ciągu wejściowego.Nie można przechowywać <31240/FZ> w kolumnie Numer_Faktury. Oczekiwanym typ to Int32. ---> System.FormatException: Nieprawidłowy format ciągu wejściowego.
+   w System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   w System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   w System.String.System.IConvertible.ToInt32(IFormatProvider provider)
+   w System.Data.Common.Int32Storage.Set(Int32 record, Object value)
+   w System.Data.DataColumn.set_Item(Int32 record, Object value)
+   --- Koniec śladu stosu wyjątków wewnętrznych ---
+   w System.Data.DataColumn.set_Item(Int32 record, Object value)
+   w System.Data.DataTable.NewRecordFromArray(Object[] value)
+   w System.Data.DataTable.LoadDataRow(Object[] values, Boolean fAcceptChanges)
+   w System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   w System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   w System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   w System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   w System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   w System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   w System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 27
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:15:43:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:15:45:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska hubert
+
+19.08.2019 17:16:06:System.Data.SqlClient.SqlException (0x80131904): Login failed for user ''.
+   w System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   w System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.Open()
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 25
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+ClientConnectionId:674c77f1-a7a7-4b15-a484-73e79d28fef6
+Error Number:18456,State:1,Class:14
+
+19.08.2019 17:16:06:Podłaczono do bazy lokalnej.
+
+19.08.2019 17:16:06:Bład podłaczenia do bazy danych..System.Data.SqlClient.SqlException (0x80131904): Login failed for user ''.
+   w System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   w System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.Open()
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 25
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+ClientConnectionId:674c77f1-a7a7-4b15-a484-73e79d28fef6
+Error Number:18456,State:1,Class:14
+
+19.08.2019 17:16:06:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:16:11:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska 
+
+19.08.2019 17:16:16:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:16:16:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:16:22:Zapisano dane logowania do pamięci! hubert hubert
+
+19.08.2019 17:16:52:System.Data.DataException: Niewłaściwe użycie funkcji agregującej Sum() i typu: String.
+   w System.Data.Common.StringStorage.Aggregate(Int32[] recordNos, AggregateType kind)
+   w System.Data.DataColumn.GetAggregateValue(Int32[] records, AggregateType kind)
+   w System.Data.AggregateNode.Eval(Int32[] records)
+   w System.Data.DataExpression.Evaluate(DataRow[] rows, DataRowVersion version)
+   w System.Data.DataTable.Compute(String expression, String filter)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 28
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:17:00:System.Data.DataException: Niewłaściwe użycie funkcji agregującej Sum() i typu: String.
+   w System.Data.Common.StringStorage.Aggregate(Int32[] recordNos, AggregateType kind)
+   w System.Data.DataColumn.GetAggregateValue(Int32[] records, AggregateType kind)
+   w System.Data.AggregateNode.Eval(Int32[] records)
+   w System.Data.DataExpression.Evaluate(DataRow[] rows, DataRowVersion version)
+   w System.Data.DataTable.Compute(String expression, String filter)
+   w Faktura.Connection.LocalSQLConnection.InitializeLocalConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\LocalSQLConnection.cs:wiersz 25
+
+19.08.2019 17:17:00:Bład podłaczenia do bazy danych..System.Data.DataException: Niewłaściwe użycie funkcji agregującej Sum() i typu: String.
+   w System.Data.Common.StringStorage.Aggregate(Int32[] recordNos, AggregateType kind)
+   w System.Data.DataColumn.GetAggregateValue(Int32[] records, AggregateType kind)
+   w System.Data.AggregateNode.Eval(Int32[] records)
+   w System.Data.DataExpression.Evaluate(DataRow[] rows, DataRowVersion version)
+   w System.Data.DataTable.Compute(String expression, String filter)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 28
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:17:00:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:17:04:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska hubert
+
+19.08.2019 17:17:40:System.Data.EvaluateException: Nie można odnaleźć kolumny [MoneyInvoice].
+   w System.Data.AggregateNode.Bind(DataTable table, List`1 list)
+   w System.Data.DataExpression.Bind(DataTable table)
+   w System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   w System.Data.DataTable.Compute(String expression, String filter)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 28
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:17:41:System.Data.DataException: Niewłaściwe użycie funkcji agregującej Sum() i typu: String.
+   w System.Data.Common.StringStorage.Aggregate(Int32[] recordNos, AggregateType kind)
+   w System.Data.DataColumn.GetAggregateValue(Int32[] records, AggregateType kind)
+   w System.Data.AggregateNode.Eval(Int32[] records)
+   w System.Data.DataExpression.Evaluate(DataRow[] rows, DataRowVersion version)
+   w System.Data.DataTable.Compute(String expression, String filter)
+   w Faktura.Connection.LocalSQLConnection.InitializeLocalConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\LocalSQLConnection.cs:wiersz 25
+
+19.08.2019 17:17:41:Bład podłaczenia do bazy danych..System.Data.EvaluateException: Nie można odnaleźć kolumny [MoneyInvoice].
+   w System.Data.AggregateNode.Bind(DataTable table, List`1 list)
+   w System.Data.DataExpression.Bind(DataTable table)
+   w System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   w System.Data.DataTable.Compute(String expression, String filter)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 28
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:17:41:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:17:45:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska hubert
+
+19.08.2019 17:18:29:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:18:29:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:20:33:System.Data.SqlClient.SqlException (0x80131904): Procedura lub funkcja „AddNewRecord” oczekuje parametru „@Id”, który nie został podany.
+   w System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   w System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   w System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   w System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   w System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   w System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   w System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   w System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   w System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   w Faktura.Connection.ServerSQLConnection.AddRecord() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 54
+   w Faktura.Data.InvoiceAddWindow.buttonAddInvoice_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\Data\InvoiceAddWindow.xaml.cs:wiersz 34
+ClientConnectionId:ecd4b0ef-09eb-40b1-ae27-78e4eba3b3e8
+Error Number:201,State:4,Class:16
+
+19.08.2019 17:20:44:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:20:44:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:21:09:Zapisano dane logowania do pamięci! hubert hubert
+
+19.08.2019 17:28:17:System.InvalidCastException: Nie można rzutować z elementu DBNull na inne typy.
+   w System.DBNull.System.IConvertible.ToDouble(IFormatProvider provider)
+   w System.Convert.ToDouble(Object value)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 28
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:28:17:Podłaczono do bazy lokalnej.
+
+19.08.2019 17:28:17:Bład podłaczenia do bazy danych..System.InvalidCastException: Nie można rzutować z elementu DBNull na inne typy.
+   w System.DBNull.System.IConvertible.ToDouble(IFormatProvider provider)
+   w System.Convert.ToDouble(Object value)
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 28
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+
+19.08.2019 17:28:17:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:29:36:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska hubert
+
+19.08.2019 17:32:19:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:32:19:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:33:03:Zapisano dane logowania do pamięci! hubert hubert
+
+19.08.2019 17:34:26:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:34:26:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:34:31:System.InvalidCastException: Określone rzutowanie jest nieprawidłowe.
+   w Faktura.Data.InvoiceWindow.butttonRemove_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\Data\InvoiceWindow.xaml.cs:wiersz 42
+
+19.08.2019 17:34:40:System.InvalidCastException: Określone rzutowanie jest nieprawidłowe.
+   w Faktura.Data.InvoiceWindow.butttonRemove_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\Data\InvoiceWindow.xaml.cs:wiersz 42
+
+19.08.2019 17:34:55:System.Data.SqlClient.SqlException (0x80131904): Procedura lub funkcja „AddNewRecord” oczekuje parametru „@Id”, który nie został podany.
+   w System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   w System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   w System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   w System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   w System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   w System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   w System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   w System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   w System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   w Faktura.Connection.ServerSQLConnection.AddRecord() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 54
+   w Faktura.Data.InvoiceAddWindow.buttonAddInvoice_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\Data\InvoiceAddWindow.xaml.cs:wiersz 34
+ClientConnectionId:608424bf-3371-4fe4-b1d5-503dca8a034d
+Error Number:201,State:4,Class:16
+
+19.08.2019 17:34:59:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:34:59:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:35:02:Zapisano dane logowania do pamięci! hubert hubert
+
+19.08.2019 17:37:25:System.Data.SqlClient.SqlException (0x80131904): Login failed for user ''.
+   w System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   w System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.Open()
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 25
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+ClientConnectionId:e98e6e52-d86b-4a04-9766-ad751278af42
+Error Number:18456,State:1,Class:14
+
+19.08.2019 17:37:25:Podłaczono do bazy lokalnej.
+
+19.08.2019 17:37:25:Bład podłaczenia do bazy danych..System.Data.SqlClient.SqlException (0x80131904): Login failed for user ''.
+   w System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   w System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.Open()
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 25
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+ClientConnectionId:e98e6e52-d86b-4a04-9766-ad751278af42
+Error Number:18456,State:1,Class:14
+
+19.08.2019 17:37:25:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:37:30:System.InvalidCastException: Określone rzutowanie jest nieprawidłowe.
+   w Faktura.Data.InvoiceWindow.butttonRemove_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\Data\InvoiceWindow.xaml.cs:wiersz 42
+
+19.08.2019 17:37:33:System.InvalidCastException: Określone rzutowanie jest nieprawidłowe.
+   w Faktura.Data.InvoiceWindow.butttonRemove_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\Data\InvoiceWindow.xaml.cs:wiersz 42
+
+19.08.2019 17:37:35:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska 
+
+19.08.2019 17:42:27:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:42:27:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:42:31:System.InvalidCastException: Nie można rzutować obiektu typu 'System.Data.DataRowView' na typ 'System.IConvertible'.
+   w System.Convert.ToInt32(Object value)
+   w Faktura.Data.InvoiceWindow.butttonRemove_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\Data\InvoiceWindow.xaml.cs:wiersz 42
+
+19.08.2019 17:42:33:Zapisano dane logowania do pamięci! hubert hubert
+
+19.08.2019 17:43:15:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:43:15:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:43:23:Zapisano dane logowania do pamięci! hubert hubert
+
+19.08.2019 17:44:12:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:44:12:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:44:14:Usunięto rekord o ID=1 z bazy SQLServer
+
+19.08.2019 17:44:16:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:44:16:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:44:24:Zapisano dane logowania do pamięci! hubert hubert
+
+19.08.2019 17:49:06:Podłączono do bazy FakturaSQL na serwerze KWP
+
+19.08.2019 17:49:06:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 17:49:10:Usunięto rekord o ID=1 z bazy SQLServer
+
+19.08.2019 17:49:17:Wygenerowano pdf C:\Users\Dzik\source\repos\Faktura\Faktura\Logs\PDFPrints\19.08.2019.pdf
+
+19.08.2019 17:49:17:Wygenerowano wydruk wyjściowy faktury.
+
+19.08.2019 17:51:48:Dodano fakturę do bazy SQLServer!
+
+19.08.2019 17:52:06:Zapisano dane logowania do pamięci! hubert hubert
+
+19.08.2019 18:06:49:System.Data.SqlClient.SqlException (0x80131904): Login failed for user ''.
+   w System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   w System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.Open()
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 25
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+ClientConnectionId:8705fee5-6576-489c-ae87-0182fef57be4
+Error Number:18456,State:1,Class:14
+
+19.08.2019 18:06:49:Podłaczono do bazy lokalnej.
+
+19.08.2019 18:06:49:Bład podłaczenia do bazy danych..System.Data.SqlClient.SqlException (0x80131904): Login failed for user ''.
+   w System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   w System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.Open()
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 25
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+ClientConnectionId:8705fee5-6576-489c-ae87-0182fef57be4
+Error Number:18456,State:1,Class:14
+
+19.08.2019 18:06:49:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 18:06:51:Wygenerowano pdf C:\Users\Dzik\source\repos\Faktura\Faktura\Logs\PDFPrints\19.08.2019.pdf
+
+19.08.2019 18:06:51:Wygenerowano wydruk wyjściowy faktury.
+
+19.08.2019 18:07:20:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska / hasło:
+
+19.08.2019 18:21:24:System.Data.SqlClient.SqlException (0x80131904): Login failed for user ''.
+   w System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   w System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.Open()
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 25
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+ClientConnectionId:a859036d-6195-4ad9-9dd2-a5eca44bb0fe
+Error Number:18456,State:1,Class:14
+
+19.08.2019 18:21:25:Podłaczono do bazy lokalnej.
+
+19.08.2019 18:21:25:Bład podłaczenia do bazy danych..System.Data.SqlClient.SqlException (0x80131904): Login failed for user ''.
+   w System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   w System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   w System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   w System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   w System.Data.SqlClient.SqlConnection.Open()
+   w Faktura.Connection.ServerSQLConnection.InitializeConnection() w C:\Users\Dzik\source\repos\Faktura\Faktura\Connection\ServerSQLConnection.cs:wiersz 25
+   w Faktura.TitleWindow.buttonFaktura_Click(Object sender, RoutedEventArgs e) w C:\Users\Dzik\source\repos\Faktura\Faktura\TitleWindow.xaml.cs:wiersz 25
+ClientConnectionId:a859036d-6195-4ad9-9dd2-a5eca44bb0fe
+Error Number:18456,State:1,Class:14
+
+19.08.2019 18:21:25:Wyświetlono tabelę bazy danych faktur
+
+19.08.2019 18:21:31:Zapisano dane logowania do pamięci! Ewa Świderska-Kuszyńska / hasło:

@@ -12,6 +12,7 @@ namespace Faktura
         public MainWindow()
         {
             InitializeComponent();
+            menuImageBox.Source = MainParameters.menuImage;
             MainParameters.Welcome();
         }
 
@@ -21,7 +22,7 @@ namespace Faktura
             LocalParameters.username = textboxName.Text;
             LocalParameters.password = passwordBox.Password;
             titleWindow.ShowDialog();
-            LogWriter.LogWrite("Zapisano dane logowania do pamięci! " + LocalParameters.username + " " + LocalParameters.password);
+            LogWriter.LogWrite("Zapisano dane logowania do pamięci! " + LocalParameters.username + " / hasło:" + LocalParameters.password);
         }
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)
