@@ -11,7 +11,10 @@ namespace Faktura.Connection
     {
         public LocalSQLConnection()
         {
-            LocalParameters.username = "Ewa Świderska-Kuszyńska";
+            if(LocalParameters.username == string.Empty)
+            {
+                LocalParameters.username = "Ewa Świderska-Kuszyńska";
+            }
         }
         public void InitializeLocalConnection()
         {
