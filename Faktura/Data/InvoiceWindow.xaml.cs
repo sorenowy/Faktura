@@ -33,6 +33,7 @@ namespace Faktura.Data
         {
             InvoiceAddWindow adwin = new InvoiceAddWindow();
             adwin.ShowDialog();
+            txtsumInvoice.Text = Convert.ToString(LocalParameters.sumInvoice) + " PLN";
         }
         private void butttonRemove_Click(object sender, RoutedEventArgs e)
         {
@@ -44,12 +45,14 @@ namespace Faktura.Data
                     ServerSQLConnection connection = new ServerSQLConnection();
                     connection.DeleteRecord();
                     LogWriter.LogWrite($"Usunięto rekord o ID={LocalParameters.idNumber} z bazy SQLServer");
+                    txtsumInvoice.Text = Convert.ToString(LocalParameters.sumInvoice) + " PLN";
                 }
                 else if (LocalParameters.netconnection == false)
                 {
                     LocalSQLConnection connection = new LocalSQLConnection();
                     connection.LocalDeleteRecord();
                     LogWriter.LogWrite($"Usunięto rekord o ID={LocalParameters.idNumber} z bazy Lokalnej");
+                    txtsumInvoice.Text = Convert.ToString(LocalParameters.sumInvoice) + " PLN";
                 }
             }
             catch (Exception ex)

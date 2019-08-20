@@ -6,7 +6,7 @@ namespace Faktura.Configuration
     {
         internal static bool netconnection = true;
         internal static string serverSqlPath = "Data Source=DESKTOP-9BU76HS\\SQLEXPRESS;Initial Catalog=Faktura;Integrated Security=False"; 
-        internal static string localSqlPath = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dzik\source\repos\Faktura\Faktura\Data\Invoice.mdf;Integrated Security=True";
+        internal static string localSqlPath = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Environment.CurrentDirectory + @"\Data\Invoice.mdf;Integrated Security=True";
         internal static string localSqlSelectQuery = "SELECT Id as Numer, InvoiceDate as Data_Faktury, Type as Rodzaj_Sprzetu, InvoiceNumber as Numer_Faktury, MoneyValue as Kwota FROM InvoiceData";
         internal static string localSqlInsertQuery = "INSERT INTO InvoiceData VALUES (@InvoiceDate, @Type, @InvoiceNumber, @MoneyValue)";
         internal static string localSqlDeleteQuery = "DELETE FROM InvoiceData WHERE Id=@Id";
